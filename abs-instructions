@@ -1,1 +1,25 @@
 Instructions for installing Docker, Portainer and AudioBookShelf container.
+
+Docker LXC with Portainer
+Update repositories
+Upgrade apps
+
+Pull latest Docker
+
+Pull latest Portainer
+(include command)
+
+docker pull ghcr.io/advplyr/audiobookshelf
+
+docker run -d \
+ -p 13378:80 \
+ -v /docker/audiobookshelf/config:/config \
+ -v /docker/audiobookshelf/metadata:/metadata \
+ -v /docker/audiobookshelf/audiobooks:/audiobooks \
+ -v /docker/audiobookshelf/podcasts:/podcasts \
+ --name audiobookshelf \
+ -e TZ="America/Toronto" \
+ ghcr.io/advplyr/audiobookshelf
+
+
+(note docker directory structure)
